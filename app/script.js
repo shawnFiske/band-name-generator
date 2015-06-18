@@ -1,16 +1,16 @@
 
 $('#getBandName').on('click',function(){
-  $.get("http://localhost:3000/adjective", function(response){
+  $.get("https://shrouded-cliffs-3732.herokuapp.com/adjective", function(response){
     var adjective = response.word;
     $('#adjective').text(capitalizeWord(adjective));
   });
 
-  $.get("http://localhost:3000/verb", function(response){
+  $.get("https://shrouded-cliffs-3732.herokuapp.com/verb", function(response){
     var verb = response.word;
     $('#verb').text(capitalizeWord(verb));
   });
 
-  $.get("http://localhost:3000/noun", function(response){
+  $.get("https://shrouded-cliffs-3732.herokuapp.com/noun", function(response){
     var noun = response.word;
     $('#noun').text(capitalizeWord(noun));
   });
