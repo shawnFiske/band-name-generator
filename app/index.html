@@ -7,9 +7,37 @@
         margin-right: auto;
         margin-left: auto;
         width: 550px;
-        height: 350px;
+        height: 400px;
         background-color: #C3EEC2;
         border-radius: 25px;
+      }
+
+      #msg {
+          width: 470px;
+          background-color: #FA9B04;
+          border-radius: 10px;
+      }
+
+      #textAdjective {
+        position: relative;
+        left: 10px;
+      }
+      #textVerb {
+        position: relative;
+        left: 48px;
+      }
+      #textNoun {
+        position: relative;
+        left: 43px;
+      }
+      
+      #submitBtn {
+        float: right;
+        width: 120px;
+      }
+
+      .messaging {
+        margin-left: 10px;
       }
 
       h1 {
@@ -33,22 +61,6 @@
         float: left;
       }
 
-      #textAdjective {
-        position: relative;
-        left: 10px;
-      }
-      #textVerb {
-        position: relative;
-        left: 48px;
-      }
-      #textNoun {
-        position: relative;
-        left: 43px;
-      }
-      .submitBtn {
-        float: right;
-        width: 120px;
-      }
     </style>
   </head>
   <body>
@@ -65,28 +77,26 @@
           </p>
       </li>
       <h3>Submit words!</h3>
-      <form id="submitAdjective">
+      <form id="submitWords">
         <fieldset>
           <label for="user-adjective">Give us an adjective:</label>
-          <input type="text" name="adjective" id="textAdjective">
-          <input type="submit" value="submit Adjective" class="submitBtn">
+          <input type="text" name="adjective" id="textAdjective" class="textBox">
         </fieldset>
-      </form>
-      <form id="submitVerb">
         <fieldset>
           <label for="user-verb">Give us a verb:</label>
-          <input type="text" name="verb" id="textVerb">
-          <input type="submit" value="submit Verb" class="submitBtn">
+          <input type="text" name="verb" id="textVerb" class="textBox">
         </fieldset>
-      </form>
-      <form id="submitNoun">
         <fieldset>
           <label for="user-noun">Give us a noun:</label>
-          <input type="text" name="noun" id="textNoun">
-          <input type="submit" value="submit Noun" class="submitBtn">
+          <input type="text" name="noun" id="textNoun" class="textBox">
+          <input type="submit" value="submit Word(s)" id="submitBtn">
         </fieldset>
       </form>
-      <p id="wordRes"></p>
+      <div id="msg">
+        <p id="wordAdj" class="messaging"></p>
+        <p id="wordVerb" class="messaging"></p>
+        <p id="wordNoun" class="messaging"></p>
+      </div>
     </div>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src='script.js'></script>
