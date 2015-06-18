@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Band Name Generator</title>
+    <style type="text/css">
+      #page {
+        margin-right: auto;
+        margin-left: auto;
+        width: 550px;
+        height: 400px;
+        background-color: #C3EEC2;
+        border-radius: 25px;
+      }
+
+      #msg {
+          width: 470px;
+          background-color: #FA9B04;
+          border-radius: 10px;
+      }
+
+      #textAdjective {
+        position: relative;
+        left: 10px;
+      }
+      #textVerb {
+        position: relative;
+        left: 48px;
+      }
+      #textNoun {
+        position: relative;
+        left: 43px;
+      }
+      
+      #submitBtn {
+        float: right;
+        width: 120px;
+      }
+
+      .messaging {
+        margin-left: 10px;
+      }
+
+      h1 {
+        background-color: #246FC2;
+        text-align: center;
+      }
+
+      li {
+        list-style-type: none;
+      }
+
+      span {
+        font-size: 20px;
+      }
+
+      fieldset {
+        width: 450px;
+        border: none;
+      }
+      label {
+        float: left;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id='page'>
+      <h1>Welcome to the Band Name Generator</h1>
+      <ul id="buttons">
+        <li><button id="getBandName">Get band name</button></li>
+        <li>
+          <p>
+            <span>Your band name is:</span>
+            <span id='adjective'></span>
+            <span id='verb'></span>
+            <span id='noun'></span>
+          </p>
+      </li>
+      <h3>Submit words!</h3>
+      <form id="submitWords">
+        <fieldset>
+          <label for="user-adjective">Give us an adjective:</label>
+          <input type="text" name="adjective" id="textAdjective" class="textBox">
+        </fieldset>
+        <fieldset>
+          <label for="user-verb">Give us a verb:</label>
+          <input type="text" name="verb" id="textVerb" class="textBox">
+        </fieldset>
+        <fieldset>
+          <label for="user-noun">Give us a noun:</label>
+          <input type="text" name="noun" id="textNoun" class="textBox">
+          <input type="submit" value="submit Word(s)" id="submitBtn">
+        </fieldset>
+      </form>
+      <div id="msg">
+        <p id="wordAdj" class="messaging"></p>
+        <p id="wordVerb" class="messaging"></p>
+        <p id="wordNoun" class="messaging"></p>
+      </div>
+    </div>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src='script.js'></script>
+  </body>
+</html>

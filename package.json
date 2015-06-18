@@ -1,12 +1,14 @@
 {
-  "name": "simple-site",
+  "name": "band-name-generator",
   "version": "0.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/codefellows/band-name-generator"
+    "url": "https://github.com/shawnFiske/band-name-generator"
   },
   "description": "Example Site for JavaScript F2 at Code Fellows",
   "dependencies": {
+    "body-parser": "^1.13.1",
+    "express": "^4.12.4"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
