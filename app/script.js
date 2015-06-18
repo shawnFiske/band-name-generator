@@ -5,12 +5,12 @@ $('#getBandName').on('click',function(){
     $('#adjective').text(capitalizeWord(adjective));
   });
 
-  $.get("http://localhost:3000/adjective", function(response){
+  $.get("http://localhost:3000/verb", function(response){
     var verb = response.word;
     $('#verb').text(capitalizeWord(verb));
   });
 
-  $.get("http://localhost:3000/adjective", function(response){
+  $.get("http://localhost:3000/noun", function(response){
     var noun = response.word;
     $('#noun').text(capitalizeWord(noun));
   });
@@ -39,6 +39,7 @@ $('#submitWords').on('submit', function(e){
   var nounPost;
 
   //console.log(adjective +" : "+ verb +" : "+ noun)
+  $('#msg p').empty();
 
   if(adjective){
     adjPost = {word: adjective};
