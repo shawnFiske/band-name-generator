@@ -6,8 +6,11 @@ var bodyparser = require('body-parser');
 var Adjective = require('./lib/adjective');
 var Verb = require('./lib/verb');
 var Noun = require('./lib/noun');
+var Favorites = require('./lib/favoriteNames');
 var getRandomWord = require('./lib/getRandomWord');
+var getFavoriteBandList = require('./lib/getFavoriteBandList');
 var postRandomWord = require('./lib/postRandomWord');
+var postFavoriteBand = require('./lib/postFavoriteBand');
 
 //abstract express api to app
 var app = express();
@@ -25,6 +28,7 @@ app.use(express.static(__dirname + '/app/'));
 var adjective = new Adjective();
 var verb      = new Verb();
 var noun      = new Noun();
+var favorites = new Favorites();
 
 //end points
 //root end point
@@ -32,36 +36,47 @@ app.get('/', function(req, res) {
   res.sendFile('index.html');
 });
 
-//adjective end point
+//adjective get end point
 app.get('/adjective', function(req, res) {
   res.json(getRandomWord(adjective));
 });
 
-//verb end point
+//verb get end point
 app.get('/verb', function(req, res) {
   res.json(getRandomWord(verb));
 });
 
-//noun end point
+//noun get end point
 app.get('/noun', function(req, res) {
   res.json(getRandomWord(noun));
 });
 
-//add adjective end point
+//noun get end point
+app.get('/favorite', function(req, res) {
+  res.json(getFavoriteBandList(favorites));
+});
+
+//add adjective post end point
 app.post('/adjective', function(req, res) {
   var word = postRandomWord(req.body.word, adjective);
   res.json(word);
 });
 
-//add verb end point
+//add verb post end point
 app.post('/verb', function(req, res) {
   var word = postRandomWord(req.body.word, verb);
   res.json(word);
 });
 
-//add noun end point
+//add noun post end point
 app.post('/noun', function(req, res) {
   var word = postRandomWord(req.body.word, noun);
+  res.json(word);
+});
+
+//add noun post end point
+app.post('/favorite', function(req, res) {
+  var word = postFavoriteBand(req.body.name, favorites);
   res.json(word);
 });
 

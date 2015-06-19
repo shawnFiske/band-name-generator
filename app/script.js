@@ -2,25 +2,26 @@
 
 $('#getBandName').on('click', function() {
 
-  $.get('http://localhost:3000/adjective', function(response) {
+  $.get('/adjective', function(response) {
 
     var adjective = response.word;
     $('#adjective').text(capitalizeWord(adjective));
   });
 
-  $.get('http://localhost:3000/verb', function(response) {
+  $.get('/verb', function(response) {
 
     var verb = response.word;
     $('#verb').text(capitalizeWord(verb));
   });
 
-  $.get('http://localhost:3000/noun', function(response) {
+  $.get('/noun', function(response) {
 
     var noun = response.word;
     $('#noun').text(capitalizeWord(noun));
   });
 
-  $('input[".textBox"]').val('');
+  $('#msg p').empty();
+  $('#bandselected').empty();
 });
 
 function capitalizeWord(word) {
@@ -47,6 +48,7 @@ $('#submitWords').on('submit', function(e) {
 
   //console.log(adjective +" : "+ verb +" : "+ noun)
   $('#msg p').empty();
+  $('#bandselected').empty();
 
   if (adjective) {
 
@@ -81,6 +83,42 @@ $('#submitWords').on('submit', function(e) {
 
     });
   }
-
-  //console.log(adjectiveRes);
 });
+
+$('#favorite').on('click', function(e) {
+  e.preventDefault();
+
+  var adjective = $('#adjective').text();
+  var verb      = $('#verb').text();
+  var noun      = $('#noun').text();
+
+  console.log(adjective + ' : ' + verb + ' : ' + noun);
+
+  if (adjective.length > 0 && verb.length > 0 && noun.length > 0) {
+
+    var favoritePost = {name: adjective + ' ' + verb + ' ' + noun};
+    $.post('favorite', favoritePost, function(response) {
+
+      var favoriteRes = response.msg;
+
+      $('#bandselected').text(favoriteRes);
+    });
+  }
+
+  getFavoriteList();
+});
+
+function getFavoriteList() {
+  $.get('/favorite', function(response) {
+    var favoriteList = response.list;
+
+    $('#bandlist').empty();
+    for (var i = 0; i < favoriteList.length; i++) {
+      $('#bandlist').append('<li>' + favoriteList[i] + '</li>');
+    }
+
+    console.log(favoriteList);
+  });
+}
+
+getFavoriteList();
